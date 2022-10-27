@@ -14,8 +14,9 @@ export default () => {
 			{
 				// Push the command to a collection, with as key, the filename without extension, and as value, the function
 				client.commands.set(cmd.replace(/\.(js|ts)/g, ""), (await import(join(__dirname, "../commands/", cmd))).default)
-				console.log(`Command ${cmd} loaded`)				
 			}
-		})
+		});
+
+		console.log(`> ${cmds.length} Commands loaded`)				
 	})
 }

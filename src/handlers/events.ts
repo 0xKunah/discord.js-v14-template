@@ -19,7 +19,8 @@ export default () => {
 				client.once(event.replace(/\.(js|ts)/g, ""), evt.run)
 			else
 				client.on(event.replace(/\.(js|ts)/g, ""), evt.run)
-			console.log(`Client is listening for ${event.replace(/\.(js|ts)/g, "")} event`)
 		})
-	})
+		console.log(`> Client is listening to ${events.length} events`)
+	});
+
 }
