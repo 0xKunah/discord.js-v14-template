@@ -1,0 +1,2 @@
+# Commands
+To add a new command, create a new file in this directory. The file name should be the name of the command, and the file should export a function that takes a `Command` object as its only argument. The `Command` object has the following properties:

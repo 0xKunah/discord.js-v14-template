@@ -4,6 +4,8 @@ import Command from "../structures/Command";
 // Example command
 export default new class implements Command
 {
+	// By default, the command is enabled
+	public enabled = true;
 	// Eveyone who can send messages can run it
 	public permissions = PermissionFlagsBits.SendMessages;
 	

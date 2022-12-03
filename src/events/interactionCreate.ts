@@ -19,8 +19,12 @@ export default new class implements Event
 			// Check if bot has this command
 			if(client.slash_commands.has(interaction.commandName))
 			{
-				// Get and run the command
-				client.slash_commands.get(interaction.commandName)?.run(interaction)
+				// Check if command is enabled
+				if (client.slash_commands.get(interaction.commandName)!.enabled)
+					// Get and run the command
+					client.slash_commands.get(interaction.commandName)!.run(interaction);
+				else
+					interaction.reply({ content: `This command is disabled !`, ephemeral: true });
 
 			} else return interaction.reply({ content: `Command not found` })
 		}

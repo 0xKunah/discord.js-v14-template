@@ -24,8 +24,11 @@ export default new class implements Event
 		if(client.commands.has(msg.content.split(' ')[0]))
 		{
 			// Get the command
-			const command = client.commands.get(msg.content.split(' ')[0]);
+			const command = client.commands.get(msg.content.split(' ')[0])!;
 
+			// Check if the command is enabled
+			if (!command.enabled)
+				return msg.reply({ content: `**${msg.content.split(' ')[0]}** command is disabled !`})
 			// Check if message author has sufficient permissions to run this command
 			if(msg.member?.permissions.has(command?.permissions!))
 

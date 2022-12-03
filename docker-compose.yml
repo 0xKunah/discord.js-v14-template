@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  app:
+    container_name: discord.js-v14-template-dev
+    image: discord.js-v14-template-dev
+    build:
+      context: .
+      target: development
+    volumes:
+      - ./src:/discord.js-v14-template/src

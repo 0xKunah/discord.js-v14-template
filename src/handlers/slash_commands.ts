@@ -26,11 +26,8 @@ export const loadSlashCommands = () => {
 
 			// Ignore all non js/ts files
 			if(cmd.endsWith('.js') || cmd.endsWith('.ts'))
-			{
-				const command = (await import(join(__dirname, "../commands/slash/", cmd))).default
 				// Push the command in a collection
-				client.slash_commands.set(cmd.replace(/\.(js|ts)/g, ""), command)
-			}	
+				client.slash_commands.add(cmd.replace(/\.(js|ts)/g, ""), (await import(join(__dirname, "../commands/slash/", cmd))).default)
 
 		});
 
